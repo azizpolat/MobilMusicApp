@@ -3,7 +3,7 @@ import { StackScreenWithSearchBar } from 'constants/layout'
 import { Stack } from 'expo-router'
 import { View } from 'react-native'
 
-const FavoriteScreenLayout = () => {
+const PlayListScreenLayout = () => {
 	return (
 		<View style={defaultStyles.container}>
 			<Stack>
@@ -16,4 +16,4 @@ const FavoriteScreenLayout = () => {
 	)
 }
 
-export default FavoriteScreenLayout
+export default PlayListScreenLayout

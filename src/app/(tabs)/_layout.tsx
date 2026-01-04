@@ -1,5 +1,6 @@
 import { colors, fontSize } from '@/constants/token'
 import { FontAwesome, FontAwesome6, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
+import FloatingPlayer from 'components/FloatingPlayer'
 import { BlurView } from 'expo-blur'
 import { Tabs } from 'expo-router'
 import { StyleSheet } from 'react-native'
@@ -68,6 +69,14 @@ const TabsNavigation = () => {
 					}}
 				/>
 			</Tabs>
+			<FloatingPlayer
+				style={{
+					position: 'absolute',
+					left: 8,
+					right: 8,
+					bottom: 78,
+				}}
+			/>
 		</>
 	)
 }
