@@ -1,25 +1,23 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import TrackPlayer, { RepeatMode } from 'react-native-track-player'
 
-const setUpPlayer = async () => {
-	await TrackPlayer.setupPlayer({
-		maxCacheSize: 1024 * 10,
-	})
-	await TrackPlayer.setVolume(0.03)
-	await TrackPlayer.setRepeatMode(RepeatMode.Queue)
-}
+let isPlayerInitialized = false // 🔴 GLOBAL FLAG
 
 export const useSetUpTrackPlayer = ({ onLoad }: { onLoad?: () => void }) => {
-	const isİnitialized = useRef(false)
 	useEffect(() => {
-		setUpPlayer()
-			.then(() => {
-				isİnitialized.current = true
-				onLoad?.()
+		if (isPlayerInitialized) return
+
+		const setup = async () => {
+			await TrackPlayer.setupPlayer({
+				maxCacheSize: 1024 * 10,
 			})
-			.catch((error) => {
-				isİnitialized.current = false
-				console.log(error)
-			})
+			await TrackPlayer.setVolume(0.03)
+			await TrackPlayer.setRepeatMode(RepeatMode.Queue)
+
+			isPlayerInitialized = true
+			onLoad?.()
+		}
+
+		setup().catch(console.error)
 	}, [onLoad])
 }

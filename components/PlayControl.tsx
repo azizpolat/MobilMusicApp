@@ -12,6 +12,20 @@ type PlayerButtonProps = {
 	iconSize?: number
 }
 
+export const PlayerControls = ({ style }: PlayerControlsProps) => {
+	return (
+		<View style={[styles.container, style]}>
+			<View style={styles.row}>
+				<SkipToPreviousButton />
+
+				<PlayPauseButton />
+
+				<SkipToNextButton />
+			</View>
+		</View>
+	)
+}
+
 export const PlayPauseButton = ({ style, iconSize = 48 }: PlayerButtonProps) => {
 	const { playing } = useIsPlaying()
 
