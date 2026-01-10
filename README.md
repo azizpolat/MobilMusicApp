@@ -1,1 +1,2 @@
-<img width="1179" height="2556" alt="Simulator Screenshot - iPhone 15 Pro - 2026-01-10 at 16 32 07" src="https://github.com/user-attachments/assets/4cb50899-6485-4c25-b0a8-b077779c0ea8" />
+
+![simulator_screenshot_09F400F4-AF48-4EE5-A6E5-4A0D08C58A33](https://github.com/user-attachments/assets/c5d5c815-b69a-459a-afaf-08372b7aa00f)
