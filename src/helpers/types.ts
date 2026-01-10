@@ -11,4 +11,8 @@ export type Artist = {
 	tracks: Track[]
 }
 
-export type TrackWithPlaylist = Track & { playlist?: string[] }
+export type TrackWithPlaylist = Omit<Track, 'id'> & {
+	id: string
+	playlist?: string[]
+	rating?: number
+}

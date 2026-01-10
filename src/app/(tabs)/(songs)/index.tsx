@@ -1,7 +1,9 @@
 import library from '@/assets/data/library.json'
 import { screenPadding } from '@/constants/token'
 import { trackTitleFilter } from '@/helpers/filter'
+import { generateTracksListId } from '@/helpers/miscellaneous'
 import { useNavigationSearch } from '@/hook/useNavigationSearch'
+import { useTracks } from '@/store/library'
 import { defaultStyles } from '@/styles'
 import TrackList from 'components/TrackList'
 import { useMemo } from 'react'
@@ -14,18 +16,24 @@ const SongsScreen = () => {
 		},
 	})
 
+	const tracks = useTracks()
+
 	const filteredTrack = useMemo(() => {
 		if (!search) return library
 
 		return library.filter(trackTitleFilter(search))
-	}, [search])
+	}, [search, tracks])
 	return (
 		<View style={defaultStyles.container}>
 			<ScrollView
 				contentInsetAdjustmentBehavior="automatic"
 				style={{ paddingHorizontal: screenPadding.horizontal }}
 			>
-				<TrackList tracks={filteredTrack} scrollEnabled={false} />
+				<TrackList
+					id={generateTracksListId('songs', search)}
+					tracks={filteredTrack}
+					scrollEnabled={false}
+				/>
 			</ScrollView>
 		</View>
 	)

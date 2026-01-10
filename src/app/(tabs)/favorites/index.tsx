@@ -2,6 +2,8 @@ import { defaultStyles } from '@/styles'
 import { ScrollView, View } from 'react-native'
 
 import { screenPadding } from '@/constants/token'
+import { trackTitleFilter } from '@/helpers/filter'
+import { generateTracksListId } from '@/helpers/miscellaneous'
 import { useNavigationSearch } from '@/hook/useNavigationSearch'
 import { useFavorites } from '@/store/library'
 import TrackList from 'components/TrackList'
@@ -28,7 +30,11 @@ const FavoritesScreen = () => {
 				style={{ paddingHorizontal: screenPadding.horizontal }}
 				contentInsetAdjustmentBehavior="automatic"
 			>
-				<TrackList tracks={filteredFavoritesTracks} scrollEnabled={false} />
+				<TrackList
+					id={generateTracksListId('favorites', search)}
+					tracks={filteredFavoritesTracks}
+					scrollEnabled={false}
+				/>
 			</ScrollView>
 		</View>
 	)

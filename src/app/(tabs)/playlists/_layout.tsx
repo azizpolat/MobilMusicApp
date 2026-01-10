@@ -1,3 +1,4 @@
+import { colors } from '@/constants/token'
 import { defaultStyles } from '@/styles'
 import { StackScreenWithSearchBar } from 'constants/layout'
 import { Stack } from 'expo-router'
@@ -10,6 +11,18 @@ const PlayListScreenLayout = () => {
 				<Stack.Screen
 					name="index"
 					options={{ ...StackScreenWithSearchBar, headerTitle: 'Play List' }}
+				/>
+
+				<Stack.Screen
+					name="[name]"
+					options={{
+						headerTitle: '',
+						headerBackVisible: true,
+						headerStyle: {
+							backgroundColor: colors.background,
+						},
+						headerTintColor: '#fff',
+					}}
 				/>
 			</Stack>
 		</View>
